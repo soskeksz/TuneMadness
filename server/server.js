@@ -16,7 +16,9 @@ app.use(express.json());
 
 
 //ENDPOINTS
-
+app.get("/api/tunes/:id", async (req, res) => {
+  res.status(200)
+})
 
 
 

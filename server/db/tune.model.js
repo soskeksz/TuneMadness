@@ -9,7 +9,16 @@ const TuneSchema = new Schema({
   fullTitle: String,
   year: Number,
   style: [String],
-  
+  bpm: Number,
+  mainFlow: String,
+  accentFlow: String,
+  dropPeriods: Number,
+  introLength: Number,
+  isPlate: Boolean,
+  price: Number,
+  version: String,
+  soundcloudLink: String,
+  embeddedSoundcloudLink: String,
   
   created: {
     type: Date,
