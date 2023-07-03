@@ -7,6 +7,7 @@ import Layout from "./Pages/Layout";
 import ErrorPage from "./Pages/ErrorPage";
 
 import TuneList from "./Pages/TuneList";
+import TuneCreator from "./Pages/TuneCreator"
 
 import "./index.css";
 
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <TuneList />,
       },
+      {
+        path: "/create",
+        element: <TuneCreator />
+      }
     ],
   },
 ]);
