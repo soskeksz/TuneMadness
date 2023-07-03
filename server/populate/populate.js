@@ -28,6 +28,7 @@ const populateFirstTune = async () => {
         price: 0,
         version: "original",
         soundcloudLink: "https://on.soundcloud.com/SpGZB"
+        //need to solve embedded // problem
     }
 
     TuneModel.create(firstTune);
