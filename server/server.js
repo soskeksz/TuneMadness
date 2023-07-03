@@ -5,6 +5,8 @@ const TuneModel = require("./db/tune.model");
 
 const { MONGO_URL, PORT = 8080 } = process.env;
 
+console.log('MONGO_URL:', process.env.MONGO_URL);
+
 if (!MONGO_URL) {
   console.error("Missing MONGO_URL environment variable");
   process.exit(1);
@@ -41,3 +43,12 @@ const main = async () => {
     process.exit(1);
   });
   
+/*
+  try {
+    await mongoose.connect(MONGO_URL);
+    // ...
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    process.exit(1);
+  }
+  */
