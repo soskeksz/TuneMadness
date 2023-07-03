@@ -1,5 +1,4 @@
 import "./TuneCard.css"
-import { useState } from "react";
 
 const TuneCard = ({tuneObject}) => {
 
