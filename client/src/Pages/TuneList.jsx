@@ -21,7 +21,7 @@ const TuneList = () => {
       <p>this is the tune list</p>
 
         {tunes.map((tune) => (
-            <TuneCard tuneObject={tune}/>
+            <TuneCard key={tune._id} tuneObject={tune}/>
         ))}
 
     </div>

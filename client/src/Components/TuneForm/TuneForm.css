@@ -1,4 +1,20 @@
 .TuneForm {
     padding: 0.5rem;
   }
+
+  .TuneForm.form input[type="text"],
+  .TuneForm.form input[type="number"],
+  .TuneForm.form select,
+  .TuneForm.form button {
+    width: 50%; /* Adjust the width as needed */
+  }
+
   
+
+.TuneForm.form .control {
+  margin-bottom: 1rem; /* Add spacing between form elements */
+}
+
+.TuneForm.form button {
+  margin-top: 1rem; /* Add spacing above the button */
+}

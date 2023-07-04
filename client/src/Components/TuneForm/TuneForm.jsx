@@ -1,19 +1,53 @@
 import { useState, useEffect } from "react";
+import "./TuneForm.css";
 
 const TuneForm = ({tune, onSave}) => {
     const [title, setTitle] = useState(tune?.title ?? "");
-    const [artists, setArtists] = useState(tune?.asrtist ?? []);
+    
+    const [artists, setArtists] = useState(tune?.asrtists ?? []);
+    const [updatedArtists, setUpdatedArtists] = useState([]);
+    const [newArtist, setNewArtist] = useState("");
+
     const [year, setYear] = useState(tune?.year ?? 0);
     const [mainFlow, setMainFlow] = useState(tune?.mainFlow ?? "" );
+
+
+
+    const addArtist = (e) => {
+        e.preventDefault();
+        setUpdatedArtists([...updatedArtists, newArtist]);
+        console.log("artist added");
+        console.log(updatedArtists); 
+        setArtists(updatedArtists);
+      };
+      
+      
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-    }
+
+
+        if (tune) {
+            return onSave({
+                ...tune,
+                title,
+                artists,
+                year,
+                mainFlow
+            });
+        }
+        return onSave({
+            title,
+            artists,
+            year,
+            mainFlow
+        });
+    };
 
     return(
     
-        <form className="TuneForm" onSubmit={onSubmit}>
+        <form className="TuneForm form" onSubmit={onSubmit}>
 
             <div className="control">
 
@@ -28,15 +62,15 @@ const TuneForm = ({tune, onSave}) => {
             </div>
 
             <div className="control">
-                {/*figure out how we want to store multiple artists*/}
-                <label htmlFor="artists"></label>
+                <label htmlFor="artists">Add an artist:</label>
                 <input 
                     type="text"
-                    value={null}
-                    onChange={(e) => null}
+                    value={newArtist}
+                    onChange={(e) => setNewArtist(e.target.value)}
                     name="artists"
                     id="artists"
                 />
+                <button type="button" onClick={addArtist}>Add artist</button>
             </div>
 
             <div className="control">
@@ -55,7 +89,6 @@ const TuneForm = ({tune, onSave}) => {
                 <select 
                 name="mainFlow" 
                 id="mainFlow"
-                defaultValue={mainFlow}
                 value={mainFlow}
                 onChange={(e) => setMainFlow(e.target.value)}
                 >
@@ -65,6 +98,8 @@ const TuneForm = ({tune, onSave}) => {
                     <option value="1/2">1/2</option>
                 </select>
             </div>
+
+            <button type="submit">SUBMIT</button>
 
         </form>
 

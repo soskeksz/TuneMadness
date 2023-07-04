@@ -5,8 +5,9 @@ import {useNavigate} from "react-router-dom";
 const createTune = (tune) => {
     return fetch ("/api/tunes", {
         method: "POST",
+        mode: "cors",
         headers: {
-           "Content-Type": "application-json",
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(tune)
     }).then((res) => res.json());
@@ -27,10 +28,6 @@ const TuneCreator = () => {
                 navigate("/");
             })
     };
-
-    if (loading) {
-        return <div>Loading...</div>
-    }
 
     return(
         <div className="TuneCreator">
