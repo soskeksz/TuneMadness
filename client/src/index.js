@@ -8,6 +8,7 @@ import ErrorPage from "./Pages/ErrorPage";
 
 import TuneList from "./Pages/TuneList";
 import TuneCreator from "./Pages/TuneCreator"
+import TuneUpdater from "./Pages/TuneUpdater";
 
 import "./index.css";
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/create",
         element: <TuneCreator />
+      },
+      {
+        path: "/update/:id",
+        element: <TuneUpdater/>
       }
     ],
   },

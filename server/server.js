@@ -28,13 +28,25 @@ app.post("/api/tunes", async (req, res) => {
   console.log(req.body);
   try {
     const saved = await TuneModel.create(tune);
-    //console.log(saved); // Log the saved tune document
     return res.json(saved);
   } catch (error) {
     return next(error);
   }
 })
-
+/*
+app.patch("/api/tunes", async (req, req) => {
+  try {
+    const tune = await TuneModel.findOneAndUpdate(
+      { _id: req.params.id},
+      { $set: { ...req.body} },
+      { new: true}
+    );
+    return res.json(tune);
+  } catch (error) {
+    return next(error);
+  }
+})
+*/
 const main = async () => {
     await mongoose.connect(MONGO_URL);
   
