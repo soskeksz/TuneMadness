@@ -9,6 +9,9 @@ const TuneForm = ({ tune, onSave }) => {
   const [year, setYear] = useState(tune?.year ?? 0);
   const [mainFlow, setMainFlow] = useState(tune?.mainFlow ?? "");
 
+  console.log(tune);
+
+
   const addArtist = (e) => {
     e.preventDefault();
     setUpdatedArtists([...updatedArtists, newArtist]);

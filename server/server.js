@@ -15,13 +15,21 @@ if (!MONGO_URL) {
 const app = express();
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 //ENDPOINTS
 app.get("/api/tunes", async (req, res) => {
   const tunes = await TuneModel.find().sort({ created: "desc"});
   return res.json(tunes)
-})
+});
+
+app.get("/api/tunes/:id", async (req, res) => {
+  const tune = await TuneModel.findById(req.params.id);
+  if (!tune) {
+    return res.status(404).json({ error: "Tune not found" });
+  }
+  return res.json(tune);
+});
 
 app.post("/api/tunes", async (req, res) => {
   const tune = req.body;
@@ -32,7 +40,7 @@ app.post("/api/tunes", async (req, res) => {
   } catch (error) {
     return next(error);
   }
-})
+});
 /*
 app.patch("/api/tunes", async (req, req) => {
   try {
