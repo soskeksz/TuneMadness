@@ -3,7 +3,8 @@
 This is a MERN stack pet project, that can be used to find doubles for DJs more easily. Finding doubles is a very challenging task for DJs becouse they have to consider a lot of factors before mashing up to songs.
 
 ## Setting up the project
-clone master branch
+
+clone the repository
 
 create an empty mongoDB cluster
 
